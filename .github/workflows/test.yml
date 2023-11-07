@@ -12,7 +12,7 @@ jobs:
         steps:
             - name: Get the source code
               uses: actions/checkout@v1
-            - name: Create a release draft for a version tag
+            - name: Create a release draft for a milestone
               id: create-release-draft
               uses: ./
               with:
