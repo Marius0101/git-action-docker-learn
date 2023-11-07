@@ -9,6 +9,11 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Build Docker image
+        run: docker build -t my-docker-image:latest .  # Build the Docker image
+        working-directory: ./ # Specify the path to the directory containing your Dockerfile
+      - name: List Docker images
+        run: docker images
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
         id: hello
