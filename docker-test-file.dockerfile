@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM mcr.microsoft.com/dotnet/core/sdk:6.0
+FROM mcr.microsoft.com/dotnet/sdk:6.0
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
