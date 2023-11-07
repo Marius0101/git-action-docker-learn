@@ -1,21 +1,15 @@
-name: Test
-on:
-    push:
-        branches:
-            - main
-    milestone:
-      types: [closed]
+on: [push]
+
 jobs:
-    build:
-        name: Test
-        runs-on: ubuntu-latest
-        steps:
-            - name: Get the source code
-              uses: actions/checkout@v1
-            - name: Create a release draft for a milestone
-              id: create-release-draft
-              uses: ./
-              with:
-                repo-token: ${{secrets.GITHUB_TOKEN}}
-            - name: Print the URL of the release draft
-              run: echo "${{ steps.create-release-draft.outputs.release-url}}"
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: Hello world action step
+        id: hello
+        uses: actions/hello-world-docker-action@v2
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
