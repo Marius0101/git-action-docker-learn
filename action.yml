@@ -17,5 +17,5 @@ runs:
   using: 'docker'
   image: 'my-docker-image'
   args:
-    - ${{ inputs.repo-token }}
     - ${{ inputs.who-to-greet }}
+    - ${{ inputs.repo-token }}
