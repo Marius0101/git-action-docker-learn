@@ -1,6 +1,9 @@
 #!/bin/sh -l
 
 echo "Hello $1"
+time=$(date)
+echo "time=$time" >> $GITHUB_OUTPUT
+
 if [ "$GITHUB_EVENT_NAME" != "milestone" ]; then
     echo "::debug::The even name was '$GITHUB_EVENT_NAME'"
     exit 0 
@@ -13,5 +16,3 @@ if [ $even_type != "closed"]; then
 fi
 milestone_name = $(jq --raw-output .milestion.title $GITHUB_EVENT_PATH)
 
-time=$(date)
-echo "time=$time" >> $GITHUB_OUTPUT
