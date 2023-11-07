@@ -1,6 +1,5 @@
-#!/bin/bash
-set -u
+#!/bin/sh -l
 
-echo "::set-output name=release-url::http://example.com"
-
-exit 0
+echo "Hello $1"
+time=$(date)
+echo "time=$time" >> $GITHUB_OUTPUT

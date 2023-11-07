@@ -1,9 +1,16 @@
-name: 'Auto Release Milestone'
-description: 'Draft a GitHUb release based on newly closed Milestone'
-author: 'Marius Mihalcea'
+# action.yml
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
 outputs:
-  release-url:
-    description: 'The Url of the GitHub release that was drafted'
+  time: # id of output
+    description: 'The time we greeted you'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
